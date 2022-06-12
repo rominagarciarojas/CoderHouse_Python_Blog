@@ -16,6 +16,13 @@ class BlogIndex(TemplateView):
     model = BlogModel
     template_name = 'blog/index.html'
     
+class BlogAbout(TemplateView):
+    model = BlogModel
+    template_name = 'blog/about.html'
+
+class BlogContact(TemplateView):
+    model = BlogModel
+    template_name = 'blog/contact.html'
 
 class BlogList(ListView):
 

@@ -1,0 +1,68 @@
+{% extends "blog/index.html" %}
+
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+{% bootstrap_messages %}
+
+{% block  cuerpo %}
+     <main class="vw-100 vh-75 p-3" style="background-image:url(https://i.ibb.co/SfVH1KD/tolk-chi-16-1.jpg); background-repeat: no-repeat; background-position: center; background-attachment: fixed; background-size: cover;">
+      
+        <div class="container" style="background-color: white; opacity: 0.85; border-radius: 20px;">
+        <h1 class="text-center p-3 text-primary">Contacto</h1>
+        
+         <div class="container px-lg-4">
+             <div class="row gx-4 gx-lg-5 justify-content-left">
+                 <div class="col">
+                     <h5>Complete el siguiente formulario y nos pondremos en contacto lo antes posible.</h5>
+                     <div>
+                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                             <div class="form-floating">
+                                 <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                                 <label for="name">Nombre</label>
+                                 <div class="invalid-feedback" data-sb-feedback="name:required">Necesitamos un nombre</div>
+                             </div>
+                             <div class="form-floating">
+                                 <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
+                                 <label for="email">Email</label>
+                                 <div class="invalid-feedback" data-sb-feedback="email:required">Necesitamos un email.</div>
+                                 <div class="invalid-feedback" data-sb-feedback="email:email">El email no es válido.</div>
+                             </div>
+                             <div class="form-floating">
+                                 <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" />
+                                 <label for="phone">Teléfono</label>
+                                 <div class="invalid-feedback" data-sb-feedback="phone:required">Necesitamos un número telefónico</div>
+                             </div>
+                             <div class="form-floating">
+                                 <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                                 <label for="message">Mensaje</label>
+                                 <div class="invalid-feedback" data-sb-feedback="message:required">Necesitamos un mensaje</div>
+                             </div>
+                             <br />
+                             <div class="d-none" id="submitSuccessMessage">
+                                 <div class="text-center mb-3">
+                                     <div class="fw-bolder">¡Envío de formulario exitoso!</div>
+                                     Para activar este formulario, regístrate en
+                                     <br />
+                                     <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                                 </div>
+                             </div>
+
+                             <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error al enviar mensaje!</div></div>
+                             <!-- Submit Button-->
+                             <button class="btn btn-primary text-uppercase disabled" id="submitButton" type="submit">Enviar</button>
+                         </form>
+                     </div>
+                 </div>
+             </div>
+            </div>
+         </div>
+     </main>
+
+
+
+
+      {% endblock %} 

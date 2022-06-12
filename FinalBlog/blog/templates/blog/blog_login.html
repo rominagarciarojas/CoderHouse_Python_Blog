@@ -1,5 +1,36 @@
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Iniciar Sesión</button>
+{% extends "blog/index.html" %}
+
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+{% bootstrap_messages %}
+
+{% block  cuerpo %}
+   
+
+<main class="container-fluid" style="background-image:url(https://i.ibb.co/qr4KXhm/FT-9894-copia.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; height: 85%;">
+<form method="POST" class="row justify-content-center p-3"> 
+    <div class="card text-center p-3 mt-5" style="width: 18rem;">
+        <img class="text-center" src="https://i.ibb.co/27GNXDK/LOGO-TOLKIEN-copia.jpg" alt="LOGO-TOLKIEN-copia" alt="logoTolkien">
+        <div class="card-body text-center">
+            <div class="text-center">
+       
+    {% csrf_token %}  
+ {{form.as_p}} 
+
+                <button type="submit" class="btn btn-primary text-center">Iniciar Sesión</button>
+                    <div class="card-body">
+                        <a class="dropdown-item" href="{% url 'blogger_signup' %}">Crea una cuenta</a>
+                    </div>
+            </div>
+        </div>
+    </div>
 </form>
+</main>
+{% endblock %} 
+
+
+

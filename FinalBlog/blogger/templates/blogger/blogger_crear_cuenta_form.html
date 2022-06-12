@@ -1,7 +1,49 @@
-<a href="{% url 'blog_list' %}">Volver a Lista</a>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Crear Cuenta">
-</form>
+{% extends "blog/index.html" %}
+
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+{% bootstrap_messages %}
+
+{% block  cuerpo %}
+
+
+
+
+
+    
+
+
+
+<main class="container-fluid vh-100" style="background-image:url(https://i.ibb.co/JH9TPz3/tolk-chi-3.jpg); background-repeat: no-repeat; background-position: center; background-attachment: fixed; background-size: cover; height: 85%;">
+
+
+    <form method="POST" class="row justify-content-center pt-4"> 
+        <div class="card text-left" style="width: 35rem;">
+            <div class="text-center">
+            <img class="text-left w-50" src="https://i.ibb.co/27GNXDK/LOGO-TOLKIEN-copia.jpg" alt="LOGO-TOLKIEN-copia">
+        </div>
+            <div class="card-body text-left">
+                <div class="text-left">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="text-center">
+                    <input type="submit" class="btn btn-primary text-center" value="Crear Cuenta">  
+                </div>
+                </div>
+            </div>
+        </div>
+    </form>
+ 
+    </main>
+   {% endblock %} 
+
+
+
+
+
+

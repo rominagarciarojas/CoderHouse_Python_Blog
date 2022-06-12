@@ -1,33 +1,93 @@
-{% extends "blog/index.html" %}
-
 {% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
 
-{% block cuerpo %}
+{% bootstrap_messages %}
 
-{% if user.is_authenticated %}
-  <a href="{% url 'blog_logout' %}">Salir</a>
-  <a href="{% url 'blog_create' %}">Nuevo Blog</a>
-  <a href="{% url 'blogger_profile' user.id %}">Perfil {{user.username}}</a>
-{% else %}
-  <a href="{% url 'blog_login' %}">Entrar</a>
-  <a href="{% url 'blogger_signup' %}">Crear Cuenta</a>
-{% endif %}
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>CoderHouse - Blog Python</title>
+    </head>
+      
 
+      
+      <body class="vh-100">
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <img style="width:120px;" src="https://i.ibb.co/tqV33Tp/Dise-o-sin-t-tulo-1.png" alt="Dise-o-sin-t-tulo-1">
+                <button class="navbar-toggler" type="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        
 
-
-{% if object_list %}
-    {% for blog in object_list %}
-    <li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="btn btn-primary px-lg-3" href="{% url 'blog_create' %}" role="button">Nuevo blog</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blogger_profile' user.id %}">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blog_logout' %}">Salir</a></li>
+                        
+                        {% endif %}
+                    
+                    </ul>
+                </div>
+            </div>
+        </nav>
         
-        <a href="{% url 'blog_detail' blog.id %}">{{blog.titulo}}</a>
-        {% if user.is_authenticated %}
-          <a href="{% url 'blog_delete' blog.id %}">Borrar</a>
-          <a href="{% url 'blog_update' blog.id %}">Actualizar</a>
-        {% endif %}
-    </li>
-    {% endfor %}
-{% else %}
-  <h1> No hay blogs</h1>
-{% endif %}
+        {% block  cuerpo %}   
+       
+        
+<main class="" style="background-image:url(https://i.ibb.co/qyGpRBr/FT-9873-copia.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">  
+  <div class="p-4">   
+  <div class="container col-sm-12" style="background-color: white; opacity: 0.9; border-radius: 20px;">
+<h1 class="text-center pt-3 text-primary">Blogs disponibles</h1>
+{% if object_list %}
+        {% for blog in object_list %}
+<div class="container justify-content-center p-3 col-sm-12">
+  
+    <div class="row justify-content-center ">
+        <div class="col-sm-8 ">
+          <div class="card text-center bg-primary">
+            <div class="card-body">
+              <h2><a class="text-light" href="{% url 'blog_detail' blog.id %}">{{blog.titulo}}</a></h2>
+              {% if user.is_authenticated %}
+              <button type="submit" class="btn btn-light text-center fw-bolder"><a href="{% url 'blog_delete' blog.id %}">Borrar</a></button>
+              <button type="submit" class="btn btn-light text-center fw-bolder"><a href="{% url 'blog_update' blog.id %}">Actualizar</a></button>
+            {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+</div>  
 
-{% endblock %}
+        {% endfor %}
+    {% else %}
+      <h1 class="text-center p-3 text-primary">No hay blogs</h1>
+    {% endif %}
+</main>
+     
+
+   
+      {% endblock %} 
+        <footer class="border-top bg-light p-3">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="small text-center text-muted fst-italic">Copyright &copy; CoderHouse Python 2022</div>
+                        <div class="small text-center text-muted fst-italic">Romina Q & Romina GR & Rocio</div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
+
+
+
+
