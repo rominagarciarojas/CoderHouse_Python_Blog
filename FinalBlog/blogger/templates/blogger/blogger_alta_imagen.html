@@ -10,11 +10,10 @@
 
 {% block  cuerpo %}
 <div class="container px-4 px-lg-5" style="padding: 20px;">
-
-<form method="post">
+<form method="post" enctype= multipart/form-data>
     {% csrf_token %}
     {{ form.as_p }}
-    <input class="btn btn-primary text-center" type="submit" value="Guardar">
+    <input type="submit" value="Guardar" class="btn btn-primary text-center">
 </form>
 </div>
 {% endblock %}

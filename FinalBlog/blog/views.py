@@ -6,10 +6,12 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.views import LoginView, LogoutView
-from blog.models import BlogModel
+#from CoderHouse_Python_Blog.FinalBlog.blog.models import Contacto
+from blog.models import BlogModel, Contacto
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.base import TemplateView
+from blog.forms import ContactoForm
 
 
 class BlogIndex(TemplateView):
@@ -29,11 +31,14 @@ class BlogList(ListView):
     model = BlogModel
     template_name = "blog/blog_list.html"
 
+    def get_queryset(self, *args, **kwargs):
+        return BlogModel.objects.filter(autor=self.request.user)
 
 class BlogDetail(DetailView):
 
     model = BlogModel
     template_name = "blog/blog_detail.html"
+
 
 
 class BlogCreate(LoginRequiredMixin, CreateView):
@@ -75,4 +80,12 @@ class BlogLogin(LoginView):
 
 
 class BlogLogout(LogoutView):
-    template_name = 'blog/blog_logout.html'
+    #template_name = 'blog/blog_logout.html'
+    template_name = 'blog/index.html'
+    next_page = reverse_lazy("index")
+
+class BlogContacto(CreateView):
+    model = Contacto
+    form_class = ContactoForm
+    template_name = "blog/contact.html"
+    success_url= reverse_lazy("index")

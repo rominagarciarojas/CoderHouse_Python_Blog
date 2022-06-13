@@ -1,5 +1,21 @@
+{% extends "blog/blog_list.html" %}
+
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+
+{% bootstrap_messages %}
+
+{% block  cuerpo %}
+<div class="container px-4 px-lg-5" style="padding: 30px;">
 <form method="post">{% csrf_token %}
-    <p>¿Está Seguro que quiere borrar "{{ object }}"?</p>
+    <h3>¿Está Seguro que quiere borrar "{{ object }}"?</h3>
     {{ form }}
-    <input type="submit" value="Confirmar">
+    <div style="padding: 10px;">
+    <input class="btn btn-primary text-center" type="submit" value="Confirmar">
+    </div>
 </form>
+</div>
+{% endblock %}

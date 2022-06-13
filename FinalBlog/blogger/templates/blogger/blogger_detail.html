@@ -1,11 +1,26 @@
-<a href="{% url 'blog_list' %}">Volver a Lista Blogs</a>
+{% extends "blog/blog_list.html" %} 
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+{% block  cuerpo %} 
+<div class="container px-4 px-lg-5" style="padding: 10px;">
 <a href="{% url 'blogger_edit' user.id %}">Editar Perfil</a>
+<a href="{% url 'imagen' user.id %}">Añadir Imagen</a>
+<div style="padding: 10px;">
+{% if object.avatar_set.first.image.url %}
+<img height="128" src="{{ object.avatar_set.first.image.url }}" /> 
+{% else %}
+<img height="128" src="" alt="Sin Foto"/> 
+{% endif %}
+</div>
+<div style="padding: 10px">
+    <p><label style="font-weight: bold">Nombre: </label> {{object.first_name}}</p>
+    <p><label style="font-weight: bold">Apellido: </label> {{object.last_name}}</p>
+    <p><label style="font-weight: bold">Correo electrónico: </label> {{object.email}}</p>
+    <p><label style="font-weight: bold">Usuario: </label> {{object.username}}</p>
+</div>
 
-<ul>
-    <li>Nombre: {{object.first_name}}<li>
-    <li>Apellido: {{object.last_name}}<li>
-    <li>Correo electronico: {{object.email}} </li>
-    <li>Nombre de Usuario: {{object.username}}</li>
-</ul>
-
-<img height="128" src="{{ object.avatar_set.first.image.url }}" />
+</div>
+{% endblock %}

@@ -1,7 +1,15 @@
-<a href="{% url 'blogger_profile' user.id %}">Volver a Profile</a>
-
+{% extends "blog/blog_list.html" %} 
+{% load bootstrap5 %}
+{# Load CSS and JavaScript #}
+   {% bootstrap_css %}
+{% bootstrap_javascript %}
+{% load static %}
+{% block  cuerpo %} 
+<div class="container px-lg-4" style="padding: 50px;">
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Guardar">
+    <input type="submit" class="btn btn-primary text-center" value="Guardar">
 </form>
+</div>
+{% endblock %}
