@@ -18,6 +18,10 @@ class BlogIndex(TemplateView):
     model = BlogModel
     template_name = 'blog/index.html'
     
+class BlogBlogs(TemplateView):
+    model = BlogModel
+    template_name = 'blog/blogs.html'
+
 class BlogAbout(TemplateView):
     model = BlogModel
     template_name = 'blog/about.html'
@@ -25,6 +29,10 @@ class BlogAbout(TemplateView):
 class BlogContact(TemplateView):
     model = BlogModel
     template_name = 'blog/contact.html'
+
+class BlogTeam(TemplateView):
+    model = BlogModel
+    template_name = 'blog/team.html'
 
 class BlogList(ListView):
 

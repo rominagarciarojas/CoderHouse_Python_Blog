@@ -1,3 +1,5 @@
+{% extends "blog/index.html" %}
+
 {% load bootstrap5 %}
 {# Load CSS and JavaScript #}
    {% bootstrap_css %}
@@ -46,7 +48,7 @@
 <main class="" style="background-image:url(https://i.ibb.co/qyGpRBr/FT-9873-copia.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">  
   <div class="p-4">   
   <div class="container col-sm-8" style="background-color: white; opacity: 0.9; border-radius: 20px;">
-<h1 class="text-center pt-3 text-primary">Blogs disponibles</h1>
+<h1 class="text-center pt-3 text-primary">Blogs publicados</h1>
 
   {% if object_list %}
         {% for blog in object_list %}      
@@ -85,7 +87,3 @@
         </footer>
     </body>
 </html>
-
-
-
-
