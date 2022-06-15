@@ -28,11 +28,15 @@
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         
 
+                        
                         {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="btn btn-primary px-lg-3" href="{% url 'blog_create' %}" role="button">Nuevo blog</a></li>
+                        
+                        <li class="nav-item" style="color:rgb(0, 68, 255);  padding: 8px" >Te damos la bienvenida  <span style="font-weight: bold;">{{ user.get_username }} </span> </li>
+                        <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blogs' %}">Blogs</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blogger_profile' user.id %}">Perfil</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blog_logout' %}">Salir</a></li>
-                        
+                        <li class="nav-item"><a class="btn btn-primary px-lg-3" href="{% url 'blog_create' %}" role="button">Nuevo blog</a></li>
+                    
                         {% endif %}
                     
                     </ul>
@@ -78,7 +82,7 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="small text-center text-muted fst-italic">Copyright &copy; CoderHouse Python 2022</div>
-                        <div class="small text-center text-muted fst-italic">Romina Q & Romina GR & Rocio</div>
+                        <div class="small text-center text-muted fst-italic">Romina Quispe Real & Romina Garcia Rojas & Rocio Isa</div>
                     </div>
                 </div>
             </div>

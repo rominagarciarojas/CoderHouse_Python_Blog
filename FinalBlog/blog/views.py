@@ -88,9 +88,9 @@ class BlogLogin(LoginView):
 
 
 class BlogLogout(LogoutView):
-    #template_name = 'blog/blog_logout.html'
-    template_name = 'blog/index.html'
-    next_page = reverse_lazy("index")
+    template_name = 'blog/blog_logout.html'
+    
+    
 
 class BlogContacto(CreateView):
     model = Contacto
