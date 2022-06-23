@@ -1,6 +1,9 @@
 from django import forms
 
-from blog.models import Contacto
+from blog.models import Contacto, BlogModel
+
+listatipo = [("Público","Público"),
+             ("Privado","Privado"),]
 
 class ContactoForm(forms.ModelForm):
     class Meta:
@@ -17,7 +20,11 @@ class ContactoForm(forms.ModelForm):
                 "mensaje":forms.Textarea(attrs={'class':'form-control'}),
                 }        
 
-    #nombreApellido= forms.CharField(max_length=150)
-    #email=forms.EmailField(max_length=100, label='Email')
-    #telefono= forms.CharField(max_length=100)
-    #mensaje= forms.CharField (label='Mensaje', widget= forms.widgets.Textarea)    
+
+class BlogForm(forms.ModelForm):
+    class Meta:
+        model=BlogModel
+        fields= fields = ["titulo", "sub_titulo", "cuerpo", "visible","image"]
+        labels={"image":"Imagen",}
+        widgets={"visible":forms.Select(attrs={'required': True}, choices=listatipo),}  
+ 

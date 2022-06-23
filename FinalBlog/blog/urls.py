@@ -1,5 +1,7 @@
 from django.urls import path
 from blog import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("index/", views.BlogIndex.as_view(), name="index"),  
@@ -15,3 +17,5 @@ urlpatterns = [
     path("salir/", views.BlogLogout.as_view(), name="blog_logout"),
     path("blogs/", views.BlogBlogs.as_view(), name="blogs"),    
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

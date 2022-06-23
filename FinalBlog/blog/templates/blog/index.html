@@ -23,12 +23,22 @@
                 <button class="navbar-toggler" type="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu</button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
+                        {% if user.is_authenticated %}
+                        
+                        <li class="nav-item" style="color:rgb(0, 68, 255);  padding: 8px" >Te damos la bienvenida  <span style="font-weight: bold;">{{ user.get_username }} </span> </li>
+                        <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blog_list' %}">Blogs</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blogger_profile' user.id %}">Perfil</a></li>
+                        <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blog_logout' %}">Salir</a></li>
+                        <li class="nav-item"><a class="btn btn-primary px-lg-3" href="{% url 'blog_create' %}" role="button">Nuevo blog</a></li>
+                    
+                        {% else %}
                         <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'index' %}">Home</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'blogs' %}">Blogs</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'about' %}">Acerca de</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'team' %}">Equipo</a></li>
                         <li class="nav-item"><a class="nav-link px-lg-3" href="{% url 'contact' %}">Contacto</a></li>
                         <li class="nav-item"><a class="btn btn-primary px-lg-3" href="{% url 'blog_login' %}" role="button">Ingresar</a></li>
+                        {% endif %} 
                     </ul>
                 </div>
             </div>

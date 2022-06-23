@@ -11,8 +11,12 @@
 {% block  cuerpo %}
 <main class="vw-100 vh-75 p-3" style="background-image:url(https://i.ibb.co/P5n2G0j/FT-9833-copia.jpg); background-repeat: no-repeat; background-position: center; background-attachment: fixed; background-size: cover;">
     <div class="container" style="background-color: white; opacity: 0.9; border-radius: 20px; width: 40rem;">
+    {% if form.titulo.value != none %}
+    <h1 class="text-center p-3 text-primary">Actualizar blog</h1>
+    {% else %}
     <h1 class="text-center p-3 text-primary">Nuevo blog</h1>
-<form method="post" class="">
+    {% endif %}
+<form method="post" enctype= multipart/form-data>
    
     {% csrf_token %}
     {{ form.as_p }}
