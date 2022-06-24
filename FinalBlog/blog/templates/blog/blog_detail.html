@@ -11,7 +11,7 @@
     {% for blog in blogsPublicos %}
     <h1>{{blog.titulo}}</h1>
     {% if blog.image %}
-     <span><img height="160" src= "/media/{{ blog.image }}"></span>
+     <span><img height="160" src= '/media/{{ blog.image }}'></span>
     {% endif %}
     <p><h2>{{blog.sub_titulo}}</h2></p>
     <p> {{blog.cuerpo}} </p>

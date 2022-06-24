@@ -18,4 +18,7 @@ urlpatterns = [
     path("blogs/", views.BlogBlogs.as_view(), name="blogs"),    
 ]
 
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#incluir import para guardar imagenes
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
