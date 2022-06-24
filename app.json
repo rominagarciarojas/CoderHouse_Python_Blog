@@ -4,6 +4,7 @@
     "repository": "https://github.com/rominagarciarojas/CoderHouse_Python_Blog",
     "logo": " ",
     "keywords": ["django", "blog", "coderhouse"],
+    "stack": "heroku-20",
     "env": {
       "SECRET": {
         "description": "Genera un secret automático.",
