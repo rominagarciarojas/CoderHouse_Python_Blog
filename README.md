@@ -5,11 +5,13 @@
 Trabajo Final
 
 Equipo de trabajo:
-- Romina Garcia Rojas
-- Romina Quispe Real
+- Romina Garcia Rojas - rominagarciarojas
+- Romina Quispe Real - rominaqr
 
 Trabajo: Web Educación - La navegación de la web permite visualizar blogs con información de diversos temas. Poder completar un formulario con consultas. Registración 
 a la web, el cual permitirá dar de alta nuevos blogs, eliminar o actualizarlos. Se podrá elegir los blogs que serán públicos para ser visualizados.
+
+Video Explicativo del trabajo - ingresar al siguiente Link: https://bit.ly/Proyecto_final_Python
 
 El proyecto contiene:
  - Vistas 
@@ -20,6 +22,8 @@ El proyecto contiene:
  - Templates
 
 Herramienta de desarrollo y requeridas para el funcionamiento:
+
+instalar: pip install -r requirements.txt
 
 Archivo requirements.txt
 
