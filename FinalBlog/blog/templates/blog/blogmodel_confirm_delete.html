@@ -9,9 +9,9 @@
 {% bootstrap_messages %}
 
 {% block  cuerpo %}
-<div class="container px-4 px-lg-5" style="padding: 30px;">
+<div class="container px-4 px-lg-5" style="padding: 30px; height: 75%;">
 <form method="post">{% csrf_token %}
-    <h3>¿Está Seguro que quiere borrar "{{ object }}"?</h3>
+    <h3>¿Está seguro que quiere borrar "{{ object }}"?</h3>
     {{ form }}
     <div style="padding: 10px;">
     <input class="btn btn-primary text-center" type="submit" value="Confirmar">

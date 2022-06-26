@@ -47,9 +47,9 @@
         {% block  cuerpo %}   
        
         
-<main class="" style="background-image:url(https://i.ibb.co/qyGpRBr/FT-9873-copia.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">  
+<main class="" style="background-image:url(https://i.ibb.co/qyGpRBr/FT-9873-copia.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; min-height: 80%;">  
   <div class="p-4">   
-  <div class="container col-sm-8" style="background-color: white; opacity: 0.9; border-radius: 20px;">
+  <div class="container col-sm-8" style="background-color: white; opacity: 0.9; border-radius: 20px; height: auto;">
 <h1 class="text-center pt-3 text-primary">Blogs disponibles</h1>
 
   {% if object_list %}
@@ -70,7 +70,7 @@
 </div>  
         {% endfor %}
     {% else %}
-      <h1 class="text-center p-3 text-primary">No hay blogs</h1>
+      <h2 class="text-center p-3">No hay blogs publicados</h2>
     {% endif %}
 </main>
      

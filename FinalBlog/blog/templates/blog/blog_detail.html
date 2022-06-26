@@ -7,23 +7,32 @@
 
 {% bootstrap_messages %}
 {% block  cuerpo %}
-<div class="container px-4 px-lg-5">
-    {% for blog in blogsPublicos %}
-    <h1>{{blog.titulo}}</h1>
-    {% if blog.image %}
-     <span><img height="160" src= '/media/{{ blog.image }}'></span>
-    {% endif %}
-    <p><h2>{{blog.sub_titulo}}</h2></p>
-    <p> {{blog.cuerpo}} </p>
-    
-    <div class="bottom-item">
-        {% for usrimg in usravatar %}
-        {% if usrimg.user_id == blog.autor_id %}
-        <span class="text-center pt-3 text-primary">Publicado el {{blog.fecha_creacion|date:"d-M-Y"}} por {{blog.autor}} <img src= "/media/{{ usrimg.image }}" height="50" style="border-radius:50%;"></span>
-        {% endif %}
-        {% endfor %}
-    </div>
+
+
+<div class="container-fluid" style="background-image:url(https://i.ibb.co/FDsVRgJ/tolk-ins-5.jpg); background-repeat: no-repeat; background-attachment: fixed; background-size: cover; height: auto">
+    <div class="row mb-2 justify-content-center pt-4" >
+        <div class="col-md-6 ">
+          <div class="row g-0 border border-light border-6 rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative bg-light">
+            <div class="col p-4 d-flex flex-column position-static">
+                <div class="container px-4 px-lg-5 py-3">
+                     {% for blog in blogsPublicos %}
+                    <h1 class="py-3">{{blog.titulo}}</h1>
+                         {% if blog.image %}
+                         <span><img height="160" src= '/media/{{ blog.image }}'></span>
+                        {% endif %}
+                    <h2 class="text-primary py-3">{{blog.sub_titulo}}</h2>
+                    <p> {{blog.cuerpo}} </p>
+                    <div class="bottom-item">
+                        {% for usrimg in usravatar %}
+                        {% if usrimg.user_id == blog.autor_id %}
+                    <span class="text-center pt-3 text-primary">Publicado el {{blog.fecha_creacion|date:"d-M-Y"}} por {{blog.autor}} <img src= "/media/{{ usrimg.image }}" height="50" style="border-radius:50%;"></span>
+
+                {% endif %}
+            {% endfor %}
+       </div> 
     {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
-<p></p>
 {% endblock %} 
