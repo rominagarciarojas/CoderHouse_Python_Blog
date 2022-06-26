@@ -17,7 +17,9 @@
           <h6 class="my-1"><label style="font-weight: bold">Usuario: </label> {{object.username}}</h6>
           <div class="row">
             <a href="{% url 'blogger_edit' user.id %}">Editar Perfil</a>
+            {% if not object.avatar_set.first.image.url %}
             <a href="{% url 'imagen' user.id %}">Añadir Imagen</a>
+            {% endif %}
         </div>
         </div>
         <div class="col-auto d-none d-lg-block p-2">
